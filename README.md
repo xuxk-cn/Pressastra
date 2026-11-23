@@ -62,14 +62,6 @@ Pressastra 采用 **License Server** 架构，支持离线验签与设备绑定�
 3. 到期后，需在 [授权服务器后台](http://eduomni.dpdns.org:8088/mgr/) 购买或获取授权码，在应用激活框输入即可继续使用
 4. 授权码支持**设备绑定**，一台机器一台授权；如需换机，可在后台自助解绑（30 天冷却）
 
-### 服务端部署
-
-授权服务器部署在 Oracle 云主机（PHP + MySQL），完整部署文档见：
-
-- [server/部署独立授权站.sh](server/部署独立授权站.sh) —— 一键独立部署脚本（独立目录 `/var/www/wpb-license/`、独立 nginx 站点 8088 端口、独立库 `wpb_license`）
-- [server/README.md](server/README.md) —— 授权服务器完整部署与 API 接口文档
-- [server/操作说明.md](server/操作说明.md) —— 授权服务器详细操作手册（建表、支付回调、后台发码、故障排查）
-
 ---
 
 ## 三、核心功能使用指南
