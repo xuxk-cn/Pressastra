@@ -136,29 +136,7 @@ Pressastra 采用 **License Server** 架构，支持离线验签与设备绑定�
 
 ---
 
-## 三、客户端配置文件（settings.json）
-
-打包版发布时会生成空白 `settings.json`，首次登录后自动写入：
-
-```json
-{
-  "language": "zh",
-  "theme": "dark",
-  "url": "https://edunm.dpdns.org",
-  "username": "xuxk3581@gmail.com",
-  "password": "",
-  "auto_copy": false,
-  "password_store": "windows-credential-manager",
-  "license_server": "http://eduomni.dpdns.org:8088"
-}
-```
-
-- **密码**：不以明文保存在 settings.json，而是存入 Windows 凭据管理器（DPAPI 按用户加密）
-- **license_server**：授权服务器地址，发布前必须填写（留空则跳过授权校验，进入试用模式）
-
----
-
-## 四、打包与分发（零源码）
+## 三打包与分发（零源码）
 
 ### 构建环境
 
@@ -190,7 +168,7 @@ Pressastra 采用 **License Server** 架构，支持离线验签与设备绑定�
 
 ---
 
-## 五、授权服务器部署（服务端）
+## 四、授权服务器部署（服务端）
 
 如需自行部署授权服务器（或替换为自己的授权站点），请参考：
 
@@ -219,45 +197,7 @@ Pressastra 采用 **License Server** 架构，支持离线验签与设备绑定�
 
 ---
 
-## 五、开发与二次开发
-
-### 模块结构
-
-```
-WordPress工具集/
-├─ wp_tools_hub.py      主窗口（登录卡、工具分发）
-├─ wp_login_common.py   SmartHTTP 客户端（应用密码优先 + 表单兜底）
-├─ wp_credential_store.py  Windows 凭据管理器（DPAPI）
-├─ wp_license.py         License v2 RSA-2048 离线验签
-├─ wp_connect_wizard.py  浏览器授权向导
-├─ wp_exporter.py        全站 WXR 导出
-├─ sticky_posts_gui.py   置顶管理（兼 WPClient 登录客户端）
-├─ cli_tools_gui.py      多入口工具（批量上传/布局/导出等）
-├─ import_media_gui.py   媒体批量导入
-├─ compress_images_gui.py 图片压缩裁切
-├─ header_footer_editor.py 页眉页脚编辑
-├─ post_card_editor.py   文章卡片编辑
-├─ menu_editor_gui.py    菜单编辑器
-├─ db_export.py / db_import.py 数据库导出/导入
-├─ homepage_layout_gui.py 首页布局
-├─ import_media_gui.py   媒体导入
-├─ upload_all.py         批量上传
-├─ change_site_password.py 修改后台密码
-├─ coffee / locales / qr_resource / md2wp 等辅助模块
-└─ 打包.bat              打包为 exe
-```
-
-### 隐私与安全
-
-- **应用密码不经过 wp-login.php**，表单验证码 / Turnstile / 2FA / 主机登录防护一律不触发
-- 登录凭据加密存在 **Windows 凭据管理器**，`settings.json` 中仅留空密码标记
-- 诊断包导出时自动剔除凭据与 Cookie
-- 不上传站点 URL、文章内容到任何第三方服务器
-- 客户端与站点直连，授权服务器仅校验 license key 与设备指纹哈希
-
----
-
-## 六、版本历史
+## 五、版本历史
 
 | 版本 | 日期 | 主要更新 |
 |:---|:---|:---|
@@ -268,12 +208,10 @@ WordPress工具集/
 
 ---
 
-## 七、联系与反馈
+## 六、联系与反馈
 
 - 作者：xuxk-cn
-- GitHub：https://github.com/xuxk-cn
-- 测试站点：https://edunm.dpdns.org（演示用，数据仅供测试）
-- 授权服务器：http://eduomni.dpdns.org:8088
+- GitHub：https://github.com/xuxk-cn/Pressastra/
 
 ---
 
